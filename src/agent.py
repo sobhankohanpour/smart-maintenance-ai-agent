@@ -1,3 +1,32 @@
+"""
+agent.py
+
+Purpose:
+    Handle communication with the LLM, implement decision-making logic, 
+    use helper tools, and produce structured outputs.
+
+Description:
+    This module defines the main AI Agent workflow:
+    - Receives a user issue
+    - Sends a prompt to the LLM (OpenAI GPT-4)
+    - Parses the JSON response
+    - Enriches the response using helper functions (tools.py)
+    - Returns a structured MaintenanceTask object
+
+Dependencies:
+    - schemas.py: Defines the MaintenanceTask Pydantic model
+    - prompts.py: Contains the main LLM prompt templates
+    - tools.py: Provides helper functions for vendor selection and response time
+
+Functions:
+    run_agent(user_issue: str) -> MaintenanceTask:
+        Main agent function to process a user issue and return structured output.
+
+Usage:
+    Call `run_agent(user_issue)` with a description of the maintenance issue 
+    to receive a validated MaintenanceTask object.
+"""
+
 from openai import OpenAI
 import json
 from schemas import MaintenanceTask
