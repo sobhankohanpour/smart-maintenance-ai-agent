@@ -32,14 +32,18 @@ import json
 from schemas import MaintenanceTask
 from prompts import MAINTENANCE_PROMPT
 from tools import select_vendor, estimate_response_time
+from dotenv import load_dotenv
+import os
 
-client = OpenAI(api_key="YOUR_API_KEY")
+load_dotenv()
+api_key = os.getenv("OPENAI_API_KEY")
+client = OpenAI(api_key=api_key)
 
 def run_agent(user_issue: str) -> MaintenanceTask:
     prompt = MAINTENANCE_PROMPT.format(user_issue=user_issue)
     
     response = client.chat.completions.create(
-        model="gpt-4",
+        model="gpt-3.5-turbo",
         messages=[{"role": "user", "content": prompt}],
         temperature=0
     )
