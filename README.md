@@ -22,19 +22,26 @@ Final Response
 ```
 smart-maintenance-ai-agent/
 │
-├── app/
-│   ├── agent.py          # Logic of the AI Agent
-│   ├── tools.py          # Tool functions (vendor selection, priority, ...)
-│   ├── schemas.py        # Pydantic models (structured output)
-│   └── prompts.py        # Prompt templates
+├── src/
+│   ├── agent.py        # Core AI agent logic
+│   ├── tools.py        # Tool functions
+│   ├── schemas.py      # Pydantic models
+│   ├── prompts.py      # Prompt templates
+│   └── main.py         # Entry point
 │
-├── main.py               # Entry point (CLI or Streamlit)
+├── tests/
 ├── requirements.txt
 ├── README.md
-└── .env                  # API Keys (not committed)
+├── .env
+└── .gitignore
+
 
 ```
 
 ## How to use
 
 python 3.13
+
+```bash
+pip install -r requirements.txt
+```
